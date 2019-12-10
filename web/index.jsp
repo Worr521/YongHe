@@ -15,7 +15,7 @@
 frameset标签必须要放在head和body之间
  -->
 <frameset rows="14%,86%" frameborder="0">
-  <frame src="_top.jsp" />
+  <frame src="_top.jsp"/>
   <frameset cols="18%,82%">
     <frame src="_left.jsp" />
     <frame src="_right.jsp" name="rightFrame"/>
