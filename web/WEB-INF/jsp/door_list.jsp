@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,39 +46,17 @@
   </tr>
 
   <!-- 模版数据 -->
-  <tr>
-    <td>1</td>
-    <td>永和大王(北三环西路店)</td>
-    <td>010-62112313</td>
-    <td>北三环西路甲18号院-1号大钟寺中坤广场d座</td>
-    <td>
-      <a href="doorDelete?id=">删除</a>
-      &nbsp;|&nbsp;
-      <a href="doorInfo?id=">修改</a>
-    </td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>永和大王(北三环西路店)</td>
-    <td>010-62112313</td>
-    <td>北三环西路甲18号院-1号大钟寺中坤广场d座</td>
-    <td>
-      <a href="doorDelete?id=">删除</a>
-      &nbsp;|&nbsp;
-      <a href="doorInfo?id=">修改</a>
-    </td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>永和大王(北三环西路店)</td>
-    <td>010-62112313</td>
-    <td>北三环西路甲18号院-1号大钟寺中坤广场d座</td>
-    <td>
-      <a href="doorDelete?id=">删除</a>
-      &nbsp;|&nbsp;
-      <a href="doorInfo?id=">修改</a>
-    </td>
-  </tr>
+  <c:forEach items="${list}" var="door" varStatus="sta">
+    <tr>
+      <td>${sta.count}</td>
+      <td>${door.name}</td>
+      <td>${door.tel}</td>
+      <td>${door.addr}</td>
+      <td><a href="doorDelete?id=${door.id}">删除</a> &nbsp;|&nbsp;
+          <a href="doorInfo?id=${door.id}">修改</a>
+      </td>
+    </tr>
+  </c:forEach>
 
 </table>
 </body>

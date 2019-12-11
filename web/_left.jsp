@@ -20,10 +20,10 @@
 </head>
 <body>
 <div class="menu-bar">
-  <a href="door_list.jsp" target="rightFrame">∞ 门店管理</a>
+  <a href="doorList" target="rightFrame">∞ 门店管理</a>
 </div>
 <div class="menu-bar">
-  <a href="order_list.jsp" target="rightFrame">∞ 订单管理</a>
+  <a href="orderList" target="rightFrame">∞ 订单管理</a>
 </div>
 </body>
 </html>

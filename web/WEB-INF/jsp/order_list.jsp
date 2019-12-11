@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -29,12 +31,13 @@
 <body>
 <h2>订单管理</h2>
 <div id="add-order">
-  <a href="order_add.jsp" target="rightFrame">新增订单</a>
+  <a href="toOrderAdd" target="rightFrame">新增订单</a>
 </div>
 <hr/>
 <table border="1">
   <tr>
     <th class="order">序号</th>
+    <th>所属门店</th>
     <th>订单号</th>
     <th>类型</th>
     <th class="pnum">人数</th>
@@ -47,31 +50,30 @@
   </tr>
 
   <!-- 模版数据 -->
-  <tr>
-    <td>1</td>
-    <td>P001</td>
-    <td>堂食</td>
-    <td>1</td>
-    <td>张三</td>
-    <td>
-      2018-04-26 14:49:07
-
-      <!-- <%--
-				<fmt:formatDate value="${order.orderTime}"
-							pattern="yyyy-MM-dd HH:mm:ss" />
-				 --%> -->
-    </td>
-    <td>
-      2018-04-26 14:49:07
-    </td>
-    <td>微支付</td>
-    <td>16.0</td>
-    <td>
-      <a href="orderDelete?id=${ order.id }">删除</a>
-      &nbsp;|&nbsp;
-      <a href="orderInfo?id=${ order.id }">修改</a>
-    </td>
-  </tr>
+  <c:forEach items="${ olist }" var="order" varStatus="sta">
+    <tr>
+      <td>${ sta.count }</td>
+      <td>
+        <c:forEach items="${ dlist }" var="door">
+          ${ door.id==order.doorId?door.name:""}
+        </c:forEach>
+      </td>
+      <td>${ order.orderNo }</td>
+      <td>${ order.orderType }</td>
+      <td>${ order.pnum }</td>
+      <td>${ order.cashier }</td>
+      <td>
+        <fmt:formatDate value="${ order.orderTime }" pattern="yyyy-MM-dd HH:mm:ss"/>
+      </td>
+      <td>
+        <fmt:formatDate value="${ order.payTime }" pattern="yyyy-MM-dd HH:mm:ss"/>
+      </td>
+      <td>${ order.payType }</td>
+      <td>${ order.price }</td>
+      <td><a href="orderDelete?id=${ order.id }">删除</a> &nbsp;|&nbsp; <a
+              href="orderInfo?id=${ order.id }">修改</a></td>
+    </tr>
+  </c:forEach>
 
 </table>
 </body>

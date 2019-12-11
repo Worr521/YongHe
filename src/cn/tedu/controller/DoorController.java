@@ -18,27 +18,6 @@ public class DoorController {
 	@Autowired
     DoorMapper dao;
 
-	// 测试springmvc的开发环境
-	@RequestMapping("/testmvc")
-	public String testmvc() {
-		System.out.println("DoorController.testmvc()");
-		return "test";
-	}
-
-	// 测试ssm开发环境
-	// 查询所有门店信息
-	@RequestMapping("/testssm")
-	public String testssm(Model model) {
-		// 调用DoorMapper接口子类实例的findAll方法
-		List<Door> list = dao.findAll();
-		// 将list集合存入Model中
-		model.addAttribute("list", list);
-		// 将数据转发到test.jsp,在test.jsp中取出数据并显示
-		for (Door door : list) {
-			System.out.println(door);
-		}
-		return "test";
-	}
 
 	/*
 	 * * * * * * * * * * * * * * * * * * * * * * * * * 通用的页面跳转方法( 优先级最低 ) *
@@ -46,10 +25,10 @@ public class DoorController {
 	 * 再通过@PathVariable注解接收{}中page变量的值 * 传递给下面的方法, 赋值给方法上的page变量 * 因此再访问jsp, 可以通过
 	 * "/jsp文件名" 来访问 * * * * * * * * * * * * * * * * * * * * * * * *
 	 */
-	@RequestMapping("/{page}")
+	/*@RequestMapping("/{page}")
 	public String toPage(@PathVariable String page) {
 		return page;
-	}
+	}*/
 
 	// 1.查看所有门店信息
 	@RequestMapping("/doorList")

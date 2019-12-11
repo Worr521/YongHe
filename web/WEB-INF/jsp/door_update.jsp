@@ -29,7 +29,9 @@
 <body>
 <h2>新增门店</h2>
 <hr/>
-<form action="doorAdd" method="POST">
+<form action="doorUpdate" method="POST">
+  <!-- hidden隐藏域,在提交表单时连door.id一起提交 -->
+  <input type="hidden" name="id" value="${door.id}"/>
   <table border="1">
     <tr>
       <td width="30%">门店名称</td>

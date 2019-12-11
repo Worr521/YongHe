@@ -3,9 +3,9 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 门店表的映射文件 namespace值为对应接口的全路径 -->
-<mapper namespace="com.tedu.dao.DoorMapper">
+<mapper namespace="cn.tedu.mapper.DoorMapper">
 	<!-- 1.查询所有门店信息，id值为对应接口中方法的名字 resultType指定将查询的结果封装到哪个pojo对象中 -->
-	<select id="findAll" resultType="com.tedu.pojo.Door">
+	<select id="findAll" resultType="cn.tedu.domain.Door">
 		select * from tb_door
 	</select>
 	
@@ -21,7 +21,7 @@
 	</delete>
 	
 	<!-- 4.根据id查询指定门店信息 -->
-	<select id="findById" resultType="com.tedu.pojo.Door">
+	<select id="findById" resultType="cn.tedu.domain.Door">
 		select * from tb_door where id=#{id}
 	</select>
 	
