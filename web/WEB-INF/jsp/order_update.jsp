@@ -39,7 +39,7 @@
     <tr>
       <td width="30%">所属门店</td>
       <td>
-        <select name="doorId">
+        <select id="doorId" name="doorId">
           <c:forEach items="${ dlist }" var="door">
             <option ${ door.id==order.doorId?"selected='selected'":"" }
                     value="${ door.id }">${ door.name }</option>
@@ -81,14 +81,16 @@
         <%--<input type="text" name="orderTime"
                value=''/>--%>
         <input type="text" name="orderTime"
-                value='<fmt:formatDate value="${ order.orderTime }" pattern="yyyy-MM-dd HH:mm:ss"/>'/>
+                value='<fmt:formatDate value="${ order.orderTime }"
+                pattern="yyyy/MM/dd HH:mm:ss"/>'/>
       </td>
     </tr>
     <tr>
       <td>结账时间</td>
       <td>
         <input type="text" name="payTime"
-               value='<fmt:formatDate value="${ order.orderTime }" pattern="yyyy-MM-dd HH:mm:ss"/>'/>
+               value='<fmt:formatDate value="${ order.orderTime }"
+               pattern="yyyy/MM/dd HH:mm:ss"/>'/>
       </td>
     </tr>
     <tr>
@@ -102,8 +104,7 @@
     <tr>
       <td>支付金额</td>
       <td>
-        <input type="text" name="price"
-               value=""/>
+        <input type="text" name="price" value=""/>
 
       </td>
     </tr>
